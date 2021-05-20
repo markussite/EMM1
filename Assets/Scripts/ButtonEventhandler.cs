@@ -8,7 +8,7 @@ public class ButtonEventhandler : MonoBehaviour
 {
     [SerializeField] private Transform player;
     [SerializeField] private float speed = 0.5f;
-    private float angle = 1;
+    private float angle;
     private bool btnLeftPressed = false;
     private bool btnRightPressed = false;
     private bool btnForwardPressed = false;
@@ -36,7 +36,6 @@ public class ButtonEventhandler : MonoBehaviour
             
             case "btnRight":
                 btnRightPressed = true;
-                Debug.Log("hello");
                 break;
             case "btnForward":
                 btnForwardPressed = true;
@@ -65,7 +64,6 @@ public class ButtonEventhandler : MonoBehaviour
             case "btnBackwards":
                 btnBackwardsPressed = false;
                 break;
-                ;
         }
     }
     // Update is called once per frame
@@ -74,29 +72,31 @@ public class ButtonEventhandler : MonoBehaviour
         if (btnForwardPressed)
         {
             player.transform.position += (speed * 0.1f) * player.transform.forward;
-            Debug.Log("hello");
+            Debug.Log("forward");
         }
 
         else if (btnBackwardsPressed)
         {
             player.transform.position -= (speed * 0.1f) * player.transform.forward;
-            Debug.Log("hello");
+            Debug.Log("backwards");
         }
 
         else if (btnLeftPressed)
         {
             angle += -0.05f;
+
             Vector3 targetDirection = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle));
             player.transform.rotation = Quaternion.LookRotation(targetDirection);
-            Debug.Log("hello");
+            Debug.Log("left");
         }
 
         else if (btnRightPressed)
         {
-            angle -= -0.05f;
+            angle += -0.05f;
+
             Vector3 targetDirection = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle));
             player.transform.rotation = Quaternion.LookRotation(targetDirection);
-            Debug.Log("hello");
+            Debug.Log("right");
         }
     }
 }

@@ -16,8 +16,8 @@ public class SpawnCollectible : MonoBehaviour
         int y;
         for (int i = 0; i < 10; i++)
         {
-            x = UnityEngine.Random.Range(1,10);
-            y = UnityEngine.Random.Range(1,10);
+            x = UnityEngine.Random.Range(1,20);
+            y = UnityEngine.Random.Range(1,20);
             Instantiate(collectible, new Vector3(0+y,  3.5f, 0+x), Quaternion.identity, collectibleParent);
         }
         
