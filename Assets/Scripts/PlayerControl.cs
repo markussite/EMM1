@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour
         
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-        angle += moveHorizontal*0.01f;
+        angle += moveHorizontal*0.05f;
         
         Vector3 targetDirection = new Vector3(Mathf.Sin(angle), 0f, Mathf.Cos(angle));
 

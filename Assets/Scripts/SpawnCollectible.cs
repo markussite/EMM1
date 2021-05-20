@@ -5,8 +5,9 @@ using UnityEngine;
 public class SpawnCollectible : MonoBehaviour
 { 
     
-    public Transform collectible;
-    
+    [SerializeField] public Transform collectible;
+
+    [SerializeField] public Transform collectibleParent;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,7 @@ public class SpawnCollectible : MonoBehaviour
         {
             x = UnityEngine.Random.Range(1,10);
             y = UnityEngine.Random.Range(1,10);
-            Instantiate(collectible, new Vector3(0+y, 0.3f, 0+x), Quaternion.identity);
+            Instantiate(collectible, new Vector3(0+y,  3.5f, 0+x), Quaternion.identity, collectibleParent);
         }
         
         
