@@ -14,9 +14,13 @@ public class RotateColectible : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         rotY++;
         transform.rotation = Quaternion.Euler(new Vector3(0f,rotY,0f));
+        if (rotY > 360)
+        {
+            rotY = 1;
+        }
     }
 }
